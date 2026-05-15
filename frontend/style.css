@@ -1,0 +1,261 @@
+/* オプション項目修正侍 - 和風スタイル */
+
+:root {
+  --bg: #f5f3ee;
+  --paper: #ffffff;
+  --ink: #2a2a2a;
+  --ink-muted: #6a6a6a;
+  --accent: #8b1a1a;
+  --accent-dark: #6b0f0f;
+  --border: #d8d2c4;
+  --hit: #fef3c7;
+  --hit-border: #f59e0b;
+  --ok: #166534;
+  --error: #b91c1c;
+  --info-bg: #eff6ff;
+  --info-text: #1e40af;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* ===== ヘッダー ===== */
+header {
+  background: var(--accent);
+  color: #fff;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+header h1 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+header h1::before { content: "⚔ "; }
+
+.user-info {
+  font-size: 12px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.logout-btn {
+  background: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+  padding: 4px 12px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 12px;
+}
+.logout-btn:hover { background: rgba(255,255,255,0.15); }
+
+/* ===== ログイン画面 ===== */
+.login-wrap {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+.login-box {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 40px;
+  width: 360px;
+  max-width: 100%;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+}
+.login-box h2 {
+  margin: 0 0 8px;
+  text-align: center;
+  color: var(--accent);
+  font-size: 24px;
+  letter-spacing: 0.1em;
+}
+.login-box .sub {
+  text-align: center;
+  color: var(--ink-muted);
+  font-size: 12px;
+  margin-bottom: 28px;
+}
+.login-box label {
+  display: block;
+  font-size: 12px;
+  margin-bottom: 4px;
+  color: var(--ink-muted);
+}
+.login-box input {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+.login-box input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+.login-box button {
+  width: 100%;
+  padding: 10px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 0.1em;
+}
+.login-box button:hover { background: var(--accent-dark); }
+.login-box button:disabled { opacity: 0.5; cursor: wait; }
+
+/* ===== メイン画面 ===== */
+main {
+  padding: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.panel {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 16px 20px;
+  margin-bottom: 16px;
+}
+.panel h3 {
+  margin: 0 0 12px;
+  font-size: 14px;
+  color: var(--accent);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 6px;
+}
+
+.search-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.search-row input[type=text] {
+  flex: 1;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  font-size: 14px;
+}
+
+.result-toolbar {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+.result-toolbar .btn-danger {
+  margin-left: auto;
+}
+
+/* ===== ボタン ===== */
+.btn {
+  padding: 8px 16px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 13px;
+}
+.btn:hover { background: var(--accent-dark); }
+.btn:disabled { opacity: 0.5; cursor: wait; }
+.btn-sub {
+  background: #fff;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+}
+.btn-sub:hover { background: #fef0f0; }
+.btn-danger {
+  background: #b91c1c;
+}
+
+/* ===== ステータスバナー ===== */
+.status {
+  padding: 12px;
+  margin-top: 12px;
+  border-radius: 3px;
+  font-size: 13px;
+  display: none;
+  white-space: pre-wrap;
+}
+.status.show { display: block; }
+.status.info { background: var(--info-bg); color: var(--info-text); }
+.status.ok { background: #f0fdf4; color: var(--ok); }
+.status.error { background: #fef2f2; color: var(--error); }
+
+/* ===== テーブル ===== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  font-size: 12px;
+}
+th, td {
+  border-bottom: 1px solid var(--border);
+  padding: 8px;
+  text-align: left;
+  vertical-align: top;
+}
+th {
+  background: #faf8f3;
+  font-weight: 600;
+}
+tbody tr:hover { background: #faf8f3; }
+
+/* ===== オプション項目表示 ===== */
+.opt-block {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  padding: 6px 8px;
+  margin-bottom: 4px;
+  border-radius: 3px;
+}
+.opt-name {
+  font-weight: 600;
+  color: var(--accent);
+}
+.sel-item {
+  font-size: 11px;
+  color: var(--ink-muted);
+}
+.sel-item.matched {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* ===== ユーティリティ ===== */
+.small { font-size: 11px; }
+.muted { color: var(--ink-muted); }
+
+code {
+  background: #f3f0e8;
+  padding: 1px 4px;
+  border-radius: 2px;
+  font-size: 11px;
+  font-family: "Menlo", "Consolas", monospace;
+}
+
+a { color: var(--accent); }
+a:hover { color: var(--accent-dark); }

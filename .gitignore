@@ -1,0 +1,25 @@
+# Node
+node_modules/
+npm-debug.log*
+
+# clasp - ローカル認証情報は絶対にコミットしない
+gas/.clasprc.json
+.clasprc.json
+.clasp.json.bak
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+.claude/
+*.swp
+
+# Logs
+*.log
+
+# Backup
+*.bak
+*~

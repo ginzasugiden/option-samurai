@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>オプション項目修正侍</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+  <!-- ============ ログイン画面 ============ -->
+  <div id="loginView" class="login-wrap">
+    <div class="login-box">
+      <h2>オプション項目修正侍</h2>
+      <div class="sub">楽天店舗オプション項目 一括メンテツール</div>
+      <label for="loginId">ID</label>
+      <input type="text" id="loginId" autocomplete="username">
+      <label for="loginPw">パスワード</label>
+      <input type="password" id="loginPw" autocomplete="current-password">
+      <button id="loginBtn">ログイン</button>
+      <div id="loginStatus" class="status"></div>
+    </div>
+  </div>
+
+  <!-- ============ メイン画面 ============ -->
+  <div id="mainView" style="display:none;">
+    <header>
+      <h1>オプション項目修正侍</h1>
+      <div class="user-info">
+        <span id="userLabel"></span>
+        <button class="logout-btn" id="logoutBtn">ログアウト</button>
+      </div>
+    </header>
+
+    <main>
+      <!-- 検索パネル -->
+      <div class="panel">
+        <h3>キーワード検索</h3>
+        <p class="small muted">
+          オプション項目の「項目名」または「選択肢名」に指定したキーワードを含む商品を全件検索します。<br>
+          例: <code>母の日</code> / <code>5/11</code> / <code>カーネーション</code>
+        </p>
+        <div class="search-row">
+          <input type="text" id="keyword" placeholder="検索キーワード(例: 母の日)" value="母の日">
+          <button class="btn" id="searchBtn">全商品検索</button>
+        </div>
+        <div id="searchStatus" class="status"></div>
+      </div>
+
+      <!-- 結果パネル -->
+      <div class="panel" id="resultPanel" style="display:none;">
+        <h3>
+          検索結果
+          <span id="resultCount" class="muted small"></span>
+        </h3>
+        <div class="result-toolbar">
+          <button class="btn btn-sub" id="selectAllBtn">全選択</button>
+          <button class="btn btn-sub" id="deselectAllBtn">全解除</button>
+          <button class="btn btn-danger" id="updateBtn">選択項目を削除して更新</button>
+        </div>
+        <div id="resultTable"></div>
+        <div id="updateStatus" class="status"></div>
+      </div>
+    </main>
+  </div>
+
+  <script src="./config.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
