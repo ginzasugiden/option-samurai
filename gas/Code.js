@@ -19,6 +19,9 @@ const LOG_SHEET_NAME = 'operation_log';
 const SESSION_PROP_PREFIX = 'session_';
 const SESSION_TTL_MS = 12 * 60 * 60 * 1000; // 12時間
 
+// 既存スプレッドシート(コンテンツページ生成ちゃんと共用)のID
+const SPREADSHEET_ID = '1iYeV2SbOVoRH8Qjm2d1w5tWmhlE_zcc-yO1tDSLN7Rk';
+
 /**
  * 許可するOrigin。
  * セットアップ完了後、GitHub Pagesのオリジンを追記すること。
@@ -28,8 +31,8 @@ const SESSION_TTL_MS = 12 * 60 * 60 * 1000; // 12時間
  *   'http://localhost:8000',  // ローカル開発用
  */
 const ALLOWED_ORIGINS = [
-  // 'https://YOUR_GITHUB_USERNAME.github.io',
-  // 'http://localhost:8000',
+  'https://ginzasugiden.github.io',
+  'http://localhost:8000',  // ローカル開発用
 ];
 
 // ============================================================
@@ -205,7 +208,7 @@ function _verifySession(token) {
 // ============================================================
 
 function findUserById(id) {
-  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const ss = SpreadsheetApp.openById(SPREADSHEET_ID);
   const sheet = ss.getSheetByName(SHEET_NAME);
   if (!sheet) {
     throw new Error('シート「' + SHEET_NAME + '」が見つかりません');
@@ -426,7 +429,7 @@ function updateItemOptions(token, manageNumber, removals) {
 // ============================================================
 function _writeOperationLog(entry) {
   try {
-    const ss = SpreadsheetApp.getActiveSpreadsheet();
+    const ss = SpreadsheetApp.openById(SPREADSHEET_ID);
     let sheet = ss.getSheetByName(LOG_SHEET_NAME);
     if (!sheet) {
       sheet = ss.insertSheet(LOG_SHEET_NAME);

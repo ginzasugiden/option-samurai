@@ -13,7 +13,7 @@
 
 window.SAMURAI_CONFIG = {
   // ↓↓↓ ここを clasp deploy で取得した URL に書き換える ↓↓↓
-  GAS_URL: 'https://script.google.com/macros/s/PASTE_YOUR_DEPLOYMENT_ID_HERE/exec',
+  GAS_URL: 'https://script.google.com/macros/s/AKfycbznyHABIrDBrbJA0hlBRLdcdFg1lJwNsNxTHW_96YrwX0b-yEC6EFhwaRelM5rNTEQa/exec',
 
   // タイムアウト設定(ミリ秒)
   REQUEST_TIMEOUT_MS: 5 * 60 * 1000,  // 5分(全商品スキャンが長い場合に備える)
